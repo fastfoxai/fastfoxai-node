@@ -1,6 +1,6 @@
 # FastFox Node.js SDK
 
-Node.js library for the FastFpx API.
+Node.js library for the FastFox API.
 
 ## Install
 
