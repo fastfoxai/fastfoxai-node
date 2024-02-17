@@ -1,4 +1,4 @@
-name: rsnd
+name: fastfox
 on:
   push:
     branches:
