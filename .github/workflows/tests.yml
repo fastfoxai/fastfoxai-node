@@ -20,14 +20,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache npm cache
-        id: npm-cache
-        uses: buildjet/cache@v4
-        with:
-          path: ~/.cache/npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
       - name: Install packages
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
@@ -48,14 +40,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache npm cache
-        id: npm-cache
-        uses: buildjet/cache@v4
-        with:
-          path: ~/.cache/npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
       - name: Install packages
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
@@ -76,14 +60,6 @@ jobs:
   #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
   #         restore-keys: |
   #           ${{ runner.os }}-node-
-  #     - name: Cache npm cache
-  #       id: npm-cache
-  #       uses: buildjet/cache@v3
-  #       with:
-  #         path: ~/.cache/npm
-  #         key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-npm-
   #     - name: Install packages
   #       if: steps.npm-cache.outputs.cache-hit != 'true'
   #       run: npm
@@ -104,14 +80,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache npm cache
-        id: npm-cache
-        uses: buildjet/cache@v4
-        with:
-          path: ~/.cache/npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
       - name: Install packages
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
@@ -132,14 +100,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache npm cache
-        id: npm-cache
-        uses: buildjet/cache@v4
-        with:
-          path: ~/.cache/npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-json.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
       - name: Install packages
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
