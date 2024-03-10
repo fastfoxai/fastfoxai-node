@@ -38,6 +38,7 @@ export class FastFox {
       Authorization: `Bearer ${this.key}`,
       'User-Agent': userAgent,
       'Content-Type': 'application/json',
+      Accept: 'application/json',
     });
   }
 
