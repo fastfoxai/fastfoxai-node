@@ -1,6 +1,6 @@
 {
   "name": "fastfox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node.js library for the FastFox API",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
