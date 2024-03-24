@@ -1,14 +1,20 @@
 import { ErrorResponse } from '../../interfaces';
 
-export type GetPromptOptions =
-  | {
-      type: 'alias';
-      alias: string;
-    }
-  | {
-      type: 'version';
-      version: string;
-    };
+type GetPromptByAlias = {
+  type: 'alias';
+  alias: string;
+};
+
+type GetPromptByVersion = {
+  type: 'version';
+  version: number;
+};
+
+type GetPromptByAliasOrVersion = GetPromptByAlias | GetPromptByVersion;
+
+export type GetPromptOptions = GetPromptByAliasOrVersion & {
+  variables?: Record<string, string | number>;
+};
 
 export interface GetPromptResponseSuccess {
   uuid: string;
