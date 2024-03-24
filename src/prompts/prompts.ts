@@ -19,8 +19,11 @@ export class Prompts {
     const typeValue =
       options.type === 'alias' ? options.alias : options.version;
 
-    const data = await this.fastfox.get<GetPromptResponseSuccess>(
+    const data = await this.fastfox.post<GetPromptResponseSuccess>(
       `/prompts/${slug}/${type}/${typeValue}`,
+      {
+        variables: options.variables || {},
+      },
     );
     return data;
   }
