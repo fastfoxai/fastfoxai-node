@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   lint:
-    runs-on: buildjet-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     container:
       image: node:20
     steps:
@@ -26,7 +26,7 @@ jobs:
       - name: Run Lint
         run: npm lint
   format:
-    runs-on: buildjet-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     container:
       image: node:20
     steps:
@@ -46,7 +46,7 @@ jobs:
       - name: Run Format Check
         run: npm format:check
   # test:
-  #   runs-on: buildjet-4vcpu-ubuntu-2204
+  #   runs-on: ubuntu-latest
   #   container:
   #     image: node:20
   #   steps:
@@ -66,7 +66,7 @@ jobs:
   #     - name: Run Tests
   #       run: npm test
   build:
-    runs-on: buildjet-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     container:
       image: node:20
     steps:
@@ -86,7 +86,7 @@ jobs:
       - name: Run Build
         run: npm build
   dependencies:
-    runs-on: buildjet-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     container:
       image: node:20
     steps:
