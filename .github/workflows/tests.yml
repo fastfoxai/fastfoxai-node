@@ -24,7 +24,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Run Lint
-        run: npm lint
+        run: npm run lint
   format:
     runs-on: ubuntu-latest
     container:
@@ -44,27 +44,27 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Run Format Check
-        run: npm format:check
-  # test:
-  #   runs-on: ubuntu-latest
-  #   container:
-  #     image: node:20
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     - name: Cache node modules
-  #       id: npm-cache
-  #       uses: buildjet/cache@v3
-  #       with:
-  #         path: ~/.node_modules
-  #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-node-
-  #     - name: Install packages
-  #       if: steps.npm-cache.outputs.cache-hit != 'true'
-  #       run: npm
-  #     - name: Run Tests
-  #       run: npm test
+        run: npm run format:check
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cache node modules
+        id: npm-cache
+        uses: buildjet/cache@v3
+        with:
+          path: ~/.node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-json.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install packages
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm
+      - name: Run Tests
+        run: npm run test
   build:
     runs-on: ubuntu-latest
     container:
@@ -84,7 +84,7 @@ jobs:
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Run Build
-        run: npm build
+        run: npm run build
   dependencies:
     runs-on: ubuntu-latest
     container:
